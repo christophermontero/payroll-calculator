@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleButton from 'react-google-button';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
@@ -18,11 +19,18 @@ const LoginPage = () => {
           <div className="row">
             <div className="input-field col s12 m6 offset-m3">
               <i className="material-icons prefix">vpn_key</i>
-              <input id="password" className="materialize-textarea" type="text" />
+              <input
+                id="password"
+                className="materialize-textarea"
+                type="text"
+              />
               <label for="password">password</label>
             </div>
           </div>
-          <div className="row" style={{ display: 'flex', justifyContent: 'center' }}>
+          <div
+            className="row"
+            style={{ display: 'flex', justifyContent: 'center' }}
+          >
             <div className="col">
               <button className="waves-effect waves-light btn" type="submit">
                 Send <i className="material-icons right">send</i>
@@ -39,6 +47,9 @@ const LoginPage = () => {
             }}
           >
             <div className="col">
+              <div style={{ marginBottom: '1rem' }}>
+                <Link to="/register">Register in the platform</Link>
+              </div>
               <GoogleButton onClick={() => console.log('google')} />
             </div>
           </div>
