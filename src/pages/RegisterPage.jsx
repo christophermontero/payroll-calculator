@@ -23,6 +23,18 @@ const RegisterPage = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
+
+    if (username.trim().length < 2) {
+      return;
+    }
+
+    if (password.trim().length < 6) {
+      return;
+    } else {
+      if (password.trim() !== confirmPassword.trim()) {
+        return;
+      }
+    }
   };
 
   return (
