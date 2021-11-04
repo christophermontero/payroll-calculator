@@ -1,8 +1,16 @@
 import React from 'react';
-import GoogleButton from 'react-google-button';
 import { Link } from 'react-router-dom';
+import GoogleButton from 'react-google-button';
+import { useDispatch } from 'react-redux';
+import { googleLogin } from '../actions/auth';
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+
+  const handleGoogleLogin = () => {
+    dispatch(googleLogin('12345', 'Einstein'));
+  };
+
   return (
     <div className="container">
       <h3>Login</h3>
@@ -13,7 +21,7 @@ const LoginPage = () => {
             <div className="input-field col s12 m6 offset-m3">
               <i className="material-icons prefix">email</i>
               <input id="email" className="materialize-textarea" type="text" />
-              <label for="email">email</label>
+              <label htmlFor="email">email</label>
             </div>
           </div>
           <div className="row">
@@ -24,7 +32,7 @@ const LoginPage = () => {
                 className="materialize-textarea"
                 type="text"
               />
-              <label for="password">password</label>
+              <label htmlFor="password">password</label>
             </div>
           </div>
           <div
@@ -47,10 +55,16 @@ const LoginPage = () => {
             }}
           >
             <div className="col">
-              <div style={{ marginBottom: '1rem' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  marginBottom: '1rem'
+                }}
+              >
                 <Link to="/register">Register in the platform</Link>
               </div>
-              <GoogleButton onClick={() => console.log('google')} />
+              <GoogleButton onClick={handleGoogleLogin} />
             </div>
           </div>
         </form>
