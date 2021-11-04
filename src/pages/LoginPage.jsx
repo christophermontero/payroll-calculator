@@ -1,5 +1,5 @@
-import React from "react";
-import GoogleButton from "react-google-button";
+import React from 'react';
+import GoogleButton from 'react-google-button';
 
 const LoginPage = () => {
   return (
@@ -18,18 +18,11 @@ const LoginPage = () => {
           <div className="row">
             <div className="input-field col s12 m6 offset-m3">
               <i className="material-icons prefix">vpn_key</i>
-              <input
-                id="password"
-                className="materialize-textarea"
-                type="text"
-              />
+              <input id="password" className="materialize-textarea" type="text" />
               <label for="password">password</label>
             </div>
           </div>
-          <div
-            className="row"
-            style={{ display: "flex", justifyContent: "center" }}
-          >
+          <div className="row" style={{ display: 'flex', justifyContent: 'center' }}>
             <div className="col">
               <button className="waves-effect waves-light btn" type="submit">
                 Send <i className="material-icons right">send</i>
@@ -40,13 +33,13 @@ const LoginPage = () => {
           <div
             className="row"
             style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "1rem"
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '1rem'
             }}
           >
             <div className="col">
-              <GoogleButton onClick={() => console.log("google")} />
+              <GoogleButton onClick={() => console.log('google')} />
             </div>
           </div>
         </form>
