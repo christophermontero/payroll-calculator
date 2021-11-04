@@ -12,6 +12,15 @@ export const googleLogin = () => {
   };
 };
 
+export const register = (email, password, username) => {
+  return (dispatch) => {
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then((data) => console.log(data));
+  };
+};
+
 export const login = (uid, displayName) => {
   return {
     type: types.login,

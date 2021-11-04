@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { register } from '../actions/auth';
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: '',
     username: '',
@@ -35,6 +38,8 @@ const RegisterPage = () => {
         return;
       }
     }
+
+    dispatch(register(email, password, username));
   };
 
   return (
