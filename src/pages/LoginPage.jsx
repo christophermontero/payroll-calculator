@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import GoogleButton from 'react-google-button';
 import { useDispatch } from 'react-redux';
-import { googleLogin } from '../actions/auth';
+import { emailAndPassLogin, googleLogin } from '../actions/auth';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const [data, setData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const { email, password } = data;
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+
+    setData({
+      ...data,
+      [e.target.name]: value
+    });
+  };
 
   const handleGoogleLogin = () => {
     dispatch(googleLogin());
+  };
+
+  const handleEmailLogin = (e) => {
+    e.preventDefault();
+
+    if (password.trim().length < 6) {
+      return;
+    }
+
+    dispatch(emailAndPassLogin(email, password));
   };
 
   return (
@@ -16,11 +41,18 @@ const LoginPage = () => {
       <h4>Login into your account</h4>
       <hr />
       <div className="row">
-        <form className="col s12">
+        <form onSubmit={handleEmailLogin} className="col s12">
           <div className="row">
             <div className="input-field col s12 m6 offset-m3">
               <i className="material-icons prefix">email</i>
-              <input id="email" className="materialize-textarea" type="email" />
+              <input
+                onChange={handleChange}
+                value={email}
+                id="email"
+                className="materialize-textarea"
+                type="email"
+                name="email"
+              />
               <label htmlFor="email">email</label>
             </div>
           </div>
@@ -28,9 +60,12 @@ const LoginPage = () => {
             <div className="input-field col s12 m6 offset-m3">
               <i className="material-icons prefix">vpn_key</i>
               <input
+                onChange={handleChange}
+                value={password}
                 id="password"
                 className="materialize-textarea"
                 type="password"
+                name="password"
               />
               <label htmlFor="password">password</label>
             </div>

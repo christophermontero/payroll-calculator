@@ -16,7 +16,6 @@ const RegisterPage = () => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    console.log('Value', value);
 
     setData({
       ...data,
