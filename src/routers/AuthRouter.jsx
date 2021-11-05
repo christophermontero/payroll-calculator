@@ -12,7 +12,9 @@ const AuthRouter = () => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      dispatch(login(user.uid, user.displayName));
+      if (user) {
+        dispatch(login(user.uid, user.displayName));
+      }
     });
   }, [dispatch]);
 
