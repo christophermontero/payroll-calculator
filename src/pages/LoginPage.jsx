@@ -97,7 +97,7 @@ const LoginPage = () => {
                   marginBottom: '1rem'
                 }}
               >
-                <Link to="/register">Don't have an account? Sign up</Link>
+                <Link to="/auth/register">Don't have an account? Sign up</Link>
               </div>
               <GoogleButton onClick={handleGoogleLogin} />
             </div>

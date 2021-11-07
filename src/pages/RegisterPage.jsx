@@ -130,7 +130,7 @@ const RegisterPage = () => {
                   marginBottom: '1rem'
                 }}
               >
-                <Link to="/login">Sign in</Link>
+                <Link to="/auth/login">Sign in</Link>
               </div>
             </div>
           </div>
