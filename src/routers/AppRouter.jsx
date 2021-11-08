@@ -23,6 +23,7 @@ const AppRouter = () => {
       }
     });
   }, [dispatch, loged]);
+
   return (
     <Router>
       <Switch>
