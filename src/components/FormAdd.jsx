@@ -4,42 +4,52 @@ import { createRecord } from '../types/payroll';
 
 const FormAdd = () => {
   const dispatch = useDispatch();
+
   const [viewForm, setViewForm] = useState(false);
-  const [amountPayment, setPayment] = useState({
-    hours: 0,
-    paymentPerHour: 0
+  const [amountPayment, setAmountPayment] = useState({
+    pricePerHour: 0,
+    hours: 0
   });
+
+  const { pricePerHour, hours } = amountPayment;
 
   const handleAdd = () => {
     setViewForm(!viewForm);
   };
 
   const handleChange = (e) => {
-    setPayment(parseFloat(e.target.value) || e.target.value);
+    setAmountPayment({
+      ...amountPayment,
+      [e.target.name]: e.target.value
+    });
   };
 
   const handleCompute = () => {
-    dispatch(createRecord(amountPayment));
+    const finalAmount = hours * pricePerHour;
+
+    dispatch(createRecord(finalAmount));
   };
 
   return (
     <div>
       <button onClick={handleAdd} className="btn green">
-        Add
+        {!viewForm ? 'Add' : 'Close'}
       </button>
       {viewForm && (
         <>
           <input
             type="number"
-            placeholder="Add quantity of hours"
-            value={amountPayment.hours}
+            placeholder="Add mount to pay per hour"
+            //value={amountPayment.pricePerHour}
             onChange={handleChange}
+            name="pricePerHour"
           />
           <input
             type="number"
-            placeholder="Add mount to pay per hour"
-            value={amountPayment.paymentPerHour}
+            placeholder="Add quantity of hours"
+            //value={amountPayment.hours}
             onChange={handleChange}
+            name="hours"
           />
           <button className="btn purple" onClick={handleCompute}>
             Save
