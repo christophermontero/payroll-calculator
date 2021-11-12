@@ -7,6 +7,8 @@ import { login } from '../actions/auth';
 import { useDispatch } from 'react-redux';
 import AuthRouter from './AuthRouter';
 import PublicRouter from './PublicRouter';
+import { loadData } from '../helpers/loadData';
+import { readRecords } from '../types/payroll';
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -14,15 +16,18 @@ const AppRouter = () => {
   const [loged, setLoged] = useState(false);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
         setLoged(true);
+
+        const data = await loadData(user.uid);
+        dispatch(readRecords(data));
       } else {
         setLoged(false);
       }
     });
-  }, [dispatch, loged]);
+  }, [dispatch]);
 
   return (
     <Router>

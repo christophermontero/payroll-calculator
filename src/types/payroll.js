@@ -1,4 +1,5 @@
 import { db } from '../firebase/configFirebase';
+import { types } from './types';
 
 export const createRecord = (payment) => {
   return async (dispatch, getState) => {
@@ -11,4 +12,8 @@ export const createRecord = (payment) => {
 
     await db.collection(`${uid}/payrolls/payroll`).add(data);
   };
+};
+
+export const readRecords = (data) => {
+  return { type: types.payrollAdd, payload: data };
 };

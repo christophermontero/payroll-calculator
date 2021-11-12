@@ -5,6 +5,12 @@ export const payrollReducer = (state = {}, action) => {
     case types.payrollAdd:
       return {};
 
+    case types.payrollRead:
+      return {
+        ...state,
+        data: action.payload
+      };
+
     default:
       return state;
   }
