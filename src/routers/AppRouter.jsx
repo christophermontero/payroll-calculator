@@ -19,6 +19,7 @@ const AppRouter = () => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
+
         setLoged(true);
 
         const data = await loadData(user.uid);

@@ -1,6 +1,10 @@
 import { types } from '../types/types';
 
-export const payrollReducer = (state = {}, action) => {
+const initialState = {
+  data: []
+};
+
+export const payrollReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.payrollAdd:
       return {};

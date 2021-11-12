@@ -15,5 +15,5 @@ export const createRecord = (payment) => {
 };
 
 export const readRecords = (data) => {
-  return { type: types.payrollAdd, payload: data };
+  return { type: types.payrollRead, payload: data };
 };
