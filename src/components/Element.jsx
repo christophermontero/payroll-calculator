@@ -2,7 +2,13 @@ import React from 'react';
 
 const Element = ({ data }) => {
   const { date, payment } = data;
-  const dateFormat = date.toDate().toLocaleDateString('es-CO');
+  let dateFormat;
+
+  if (date.seconds) {
+    dateFormat = date.toDate().toLocaleDateString('es-CO');
+  } else {
+    dateFormat = date;
+  }
 
   return (
     <>

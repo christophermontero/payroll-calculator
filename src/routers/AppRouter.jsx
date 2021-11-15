@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import AuthRouter from './AuthRouter';
 import PublicRouter from './PublicRouter';
 import { loadData } from '../helpers/loadData';
-import { readRecords } from '../types/payroll';
+import { readRecords } from '../action/payroll';
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -20,10 +20,10 @@ const AppRouter = () => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
 
-        setLoged(true);
-
         const data = await loadData(user.uid);
         dispatch(readRecords(data));
+
+        setLoged(true);
       } else {
         setLoged(false);
       }

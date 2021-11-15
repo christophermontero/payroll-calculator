@@ -27,7 +27,7 @@ const AppPage = () => {
             {data.map((ele) => {
               return (
                 <tr key={ele.id}>
-                  <Element data={ele} />{' '}
+                  <Element data={ele} />
                 </tr>
               );
             })}

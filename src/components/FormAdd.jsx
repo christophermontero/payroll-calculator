@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createRecord } from '../types/payroll';
+import { createRecord } from '../action/payroll';
 
 const FormAdd = () => {
   const dispatch = useDispatch();

@@ -7,7 +7,10 @@ const initialState = {
 export const payrollReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.payrollAdd:
-      return {};
+      return {
+        ...state,
+        data: [...state.data, action.payload]
+      };
 
     case types.payrollRead:
       return {
