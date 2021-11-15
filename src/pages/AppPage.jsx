@@ -26,9 +26,9 @@ const AppPage = () => {
           <tbody>
             {data.map((ele) => {
               return (
-                <div key={ele.id}>
+                <tr key={ele.id}>
                   <Element data={ele} />{' '}
-                </div>
+                </tr>
               );
             })}
           </tbody>
