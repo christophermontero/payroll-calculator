@@ -24,6 +24,12 @@ export const payrollReducer = (state = initialState, action) => {
         data: state.data.filter((payroll) => payroll.id !== action.payload)
       };
 
+    case types.payrollClean:
+      return {
+        ...state,
+        data: []
+      };
+
     default:
       return state;
   }

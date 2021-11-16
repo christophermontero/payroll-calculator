@@ -48,3 +48,9 @@ export const remove = (id) => {
     payload: id
   };
 };
+
+export const clean = () => {
+  return {
+    type: types.payrollClean
+  };
+};

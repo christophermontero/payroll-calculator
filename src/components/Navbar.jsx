@@ -1,10 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { clean } from '../action/payroll';
 import { logout } from '../actions/auth';
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const handlelogut = () => {
+    dispatch(clean());
     dispatch(logout());
   };
 
