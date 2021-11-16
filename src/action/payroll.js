@@ -31,3 +31,20 @@ export const add = (data) => {
     payload: data
   };
 };
+
+export const removeRecord = (id) => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+
+    await db.doc(`${uid}/payrolls/payroll/${id}`).delete();
+
+    dispatch(remove(id));
+  };
+};
+
+export const remove = (id) => {
+  return {
+    type: types.payrollDelete,
+    payload: id
+  };
+};

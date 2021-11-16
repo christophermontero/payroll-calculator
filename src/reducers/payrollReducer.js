@@ -18,6 +18,12 @@ export const payrollReducer = (state = initialState, action) => {
         data: action.payload
       };
 
+    case types.payrollDelete:
+      return {
+        ...state,
+        data: state.data.filter((payroll) => payroll.id !== action.payload)
+      };
+
     default:
       return state;
   }
