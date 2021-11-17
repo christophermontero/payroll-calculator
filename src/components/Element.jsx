@@ -21,10 +21,10 @@ const Element = ({ data }) => {
   return (
     <>
       <td>{dateFormat}</td>
-      <td>{payment}</td>
+      <td>$ {payment}</td>
       <td>
         <button onClick={handleDelete} className="btn red">
-          Delete
+          <i className="material-icons">delete_forever</i>
         </button>
       </td>
     </>

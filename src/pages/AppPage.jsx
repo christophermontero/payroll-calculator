@@ -12,7 +12,7 @@ const AppPage = () => {
     <>
       <Navbar />
       <div className="container">
-        <h1 className="center">Hola {name}</h1>
+        <h1 className="center">Hello {name.toUpperCase()}</h1>
         <hr />
         <FormAdd />
         <table>

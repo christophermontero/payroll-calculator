@@ -24,10 +24,22 @@ const FormAdd = () => {
     });
   };
 
+  const resetInput = () => {
+    document.getElementById('payPerHour').value = '';
+    document.getElementById('hours').value = '';
+
+    setAmountPayment({
+      pricePerHour: 0,
+      hours: 0
+    });
+  };
+
   const handleCompute = () => {
     const finalAmount = hours * pricePerHour;
 
     dispatch(createRecord(finalAmount));
+
+    resetInput();
   };
 
   return (
@@ -38,16 +50,16 @@ const FormAdd = () => {
       {viewForm && (
         <>
           <input
+            id="payPerHour"
             type="number"
             placeholder="Add mount to pay per hour"
-            //value={amountPayment.pricePerHour}
             onChange={handleChange}
             name="pricePerHour"
           />
           <input
+            id="hours"
             type="number"
             placeholder="Add quantity of hours"
-            //value={amountPayment.hours}
             onChange={handleChange}
             name="hours"
           />
