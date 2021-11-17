@@ -42,8 +42,8 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="container">
-      <h4>Create your account</h4>
+    <div className="container animate__animated animate__fadeIn">
+      <h4 className="center">Create your account</h4>
       <hr />
       <div className="row">
         <form onSubmit={handleRegister} className="col s12">

@@ -13,9 +13,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <span className="brand-logo" style={{ marginLeft: '2rem' }}>
-          Calculator
-        </span>
+        <span className="brand-logo">Calculator</span>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
             <button

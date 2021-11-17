@@ -37,8 +37,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container">
-      <h4>Login into your account</h4>
+    <div className="container animate__animated animate__fadeIn">
+      <h4 className="center">Login into your account</h4>
       <hr />
       <div className="row">
         <form onSubmit={handleEmailLogin} className="col s12">

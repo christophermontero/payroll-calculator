@@ -12,7 +12,9 @@ const AppPage = () => {
     <>
       <Navbar />
       <div className="container">
-        <h1 className="center">Hello {name.toUpperCase()}</h1>
+        <h1 className="center animate__animated animate__rubberBand">
+          Hello {name.toUpperCase()}
+        </h1>
         <hr />
         <FormAdd />
         <table>
@@ -26,7 +28,10 @@ const AppPage = () => {
           <tbody>
             {data.map((ele) => {
               return (
-                <tr key={ele.id}>
+                <tr
+                  className="animate__animated animate__fadeInUp animate__delay-1s"
+                  key={ele.id}
+                >
                   <Element data={ele} />
                 </tr>
               );
