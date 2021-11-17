@@ -60,7 +60,7 @@ const FormAdd = () => {
         </button>
       )}
       {viewForm && (
-        <>
+        <div className="animate__animated animate__fadeIn">
           <input
             id="payPerHour"
             type="number"
@@ -78,7 +78,7 @@ const FormAdd = () => {
           <button className="btn purple" onClick={handleCompute}>
             <i className="material-icons">save</i>
           </button>
-        </>
+        </div>
       )}
     </div>
   );
