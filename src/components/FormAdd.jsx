@@ -44,9 +44,21 @@ const FormAdd = () => {
 
   return (
     <div>
-      <button onClick={handleAdd} className="btn green">
-        {!viewForm ? 'Add' : 'Close'}
-      </button>
+      {!viewForm ? (
+        <button
+          onClick={handleAdd}
+          className="btn-floating waves-effect waves-light green"
+        >
+          <i className="material-icons">add</i>
+        </button>
+      ) : (
+        <button
+          onClick={handleAdd}
+          className="btn-floating waves-effect waves-light red"
+        >
+          <i className="material-icons">close</i>
+        </button>
+      )}
       {viewForm && (
         <>
           <input
@@ -64,7 +76,7 @@ const FormAdd = () => {
             name="hours"
           />
           <button className="btn purple" onClick={handleCompute}>
-            Save
+            <i className="material-icons">save</i>
           </button>
         </>
       )}
